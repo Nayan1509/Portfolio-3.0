@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import React, { useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
@@ -25,7 +24,7 @@ const projects = [
     num: "01",
     category: "Front-End-Developement",
     title: "Car Rental Website",
-    description: "Designed and Developed a responsive front-end UI using React.js that delivers seamless user experience of multiple components like car details page, blogs, booking forms, car listings, user reviews sections and more.",
+    description: "Designed and Developed a responsive front-end UI using React.js that delivers seamless user experience.",
     stack: [
       { name: "HTML5" },
       { name: "CSS3" },
