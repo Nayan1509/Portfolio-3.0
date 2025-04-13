@@ -17,8 +17,8 @@ const Home = () => {
               <span className="text-accent">Anunay Nayan</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
-              I am experienced in developing and designing responsive and
-              user-friendly user interfaces.
+            A results-driven Software Developer with hands-on experience in React.js, JavaScript, and responsive
+            design. Successfully built and optimized web applications, improving load times and user experience.
             </p>
             {/* Button and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">

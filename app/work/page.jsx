@@ -24,7 +24,8 @@ const projects = [
     num: "01",
     category: "Front-End-Developement",
     title: "Car Rental Website",
-    description: "Designed and Developed a responsive front-end UI using React.js that delivers seamless user experience.",
+    description:
+      "Designed and Developed a responsive front-end UI using React.js that delivers seamless user experience.",
     stack: [
       { name: "HTML5" },
       { name: "CSS3" },
@@ -32,18 +33,16 @@ const projects = [
       { name: "React.js" },
     ],
     image: "/assets/work/thumb1.png",
-    github: "https://github.com/Nayan1509/RevvedUp-Cars---A-Premium-Car-Rental-Website",
+    github:
+      "https://github.com/Nayan1509/RevvedUp-Cars---A-Premium-Car-Rental-Website",
   },
   {
     num: "02",
     category: "Front-End-Developement",
     title: "Hotel Website",
-    description: "Developed a Hotel Website using HTML, CSS, JavaScript complete with filtered search and room inventory display",
-    stack: [
-      { name: "HTML5" },
-      { name: "CSS3" },
-      { name: "JavaScript" },
-    ],
+    description:
+      "Developed a Hotel Website using HTML, CSS, JavaScript complete with filtered search and room inventory display",
+    stack: [{ name: "HTML5" }, { name: "CSS3" }, { name: "JavaScript" }],
     image: "/assets/work/thumb2.png",
     github: "https://github.com/Nayan1509/Hotel-Website.git",
   },
@@ -51,12 +50,9 @@ const projects = [
     num: "03",
     category: "Front-End-Developement",
     title: "Bookshelf",
-    description: "Created a bookshelf app, integrated with API, which searchs for book in real time, and user can add books of his/her choice to personnel bookshelf",
-    stack: [
-      { name: "HTML5" },
-      { name: "CSS3" },
-      { name: "JavaScript" },
-    ],
+    description:
+      "Created a bookshelf app, integrated with API, which searchs for book in real time, and user can add books of his/her choice to personnel bookshelf",
+    stack: [{ name: "HTML5" }, { name: "CSS3" }, { name: "JavaScript" }],
     image: "/assets/work/thumb3.png",
     github: "https://github.com/Nayan1509/Personal-Bookshelf.git",
   },
@@ -89,7 +85,10 @@ const Work = () => {
   return (
     <motion.section
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: {delay: 2.4, duration: 0.4, ease: "easeIn"}}}
+      animate={{
+        opacity: 1,
+        transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
+      }}
       className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0"
     >
       <div className="container mx-auto">
@@ -116,7 +115,8 @@ const Work = () => {
               {/* project description  */}
               <p className="text-white/60">{project.description}</p>
               {/* stack  */}
-              <ul className="flex gap-4">
+              <div className="flex items-center md:max-w-10px">
+                <ul className="flex gap-4">
                 {project.stack.map((item, index) => {
                   return (
                     <li key={index} className="text-xl text-accent">
@@ -126,7 +126,7 @@ const Work = () => {
                     </li>
                   );
                 })}
-              </ul>
+              </ul></div>
               {/* border  */}
               <div className="border border-white/20"></div>
               {/* buttons  */}
@@ -181,8 +181,10 @@ const Work = () => {
                   justify-center items-center bg-pink-50"
                     >
                       {/* overlay  */}
-                      <div className="absolute top-0 bottom-0 w-full h-full 
-                      bg-black/10 z-10"></div>
+                      <div
+                        className="absolute top-0 bottom-0 w-full h-full 
+                      bg-black/10 z-10"
+                      ></div>
                       {/* image  */}
                       <div className="relative w-full h-full">
                         <Image
@@ -197,11 +199,14 @@ const Work = () => {
                 );
               })}
               {/* slider buttons  */}
-              <WorkSliderBtns containerStyles="flex gap-2 absolute right-0 
+              <WorkSliderBtns
+                containerStyles="flex gap-2 absolute right-0 
               bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between
-              xl:w-max xl:justify-none" btnStyles="bg-accent hover:bg-accent-hover
+              xl:w-max xl:justify-none"
+                btnStyles="bg-accent hover:bg-accent-hover
               text-primary text-[22px] w-[44px] h-[44px] flex justify-center
-              items-center transition-all"/>
+              items-center transition-all"
+              />
             </Swiper>
           </div>
         </div>

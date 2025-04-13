@@ -69,7 +69,7 @@ const experience = {
     {
       company: "Thinker Tech, Jaipur",
       position: "Web Developer Intern",
-      duration: "Jun,23 - Sep,23",
+      duration: "July,23 - Jan,24",
       description: "Led the development and design of a Dating Website",
     },
   ],
