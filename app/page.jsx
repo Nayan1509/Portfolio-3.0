@@ -11,19 +11,19 @@ const Home = () => {
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-10">
           {/* text  */}
           <div className="text-center xl:text-left order-2 xl:order-none">
-            <span className="text-xl">Software Developer</span>
+            <span className="text-xl">Full Stack Developer</span>
             <h1 className="h1 mb-6">
               Hello I'm <br />
               <span className="text-accent">Anunay Nayan</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
-            A results-driven Software Developer with hands-on experience in React.js, JavaScript, and responsive
+            A results-driven Full Stack Developer with hands-on experience in React.js, JavaScript, React.js, Node.js and responsive
             design. Successfully built and optimized web applications, improving load times and user experience.
             </p>
             {/* Button and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <a
-                href="/assets/Resume-AnunayNayan.pdf"
+                href="/assets/Resume - Anunay Nayan.pdf"
                 download="Resume - Anunay Nayan.pdf"
               >
                 <Button

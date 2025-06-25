@@ -22,6 +22,26 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 const projects = [
   {
     num: "01",
+    category: "Full Stack Developement",
+    title: "TaskVerse - A full stack Task Management App",
+    description:
+      "Taskverse is a full-stack productivity web app that allows users to organize, manage, and track tasks with a clean UI, real-time sync, drag-and-drop functionality, and secure authentication. Built using the MERN stack and deployed on Vercel (Frontend) and Render (Backend).",
+    stack: [
+      { name: "HTML5" },
+      { name: "JavaScript" },
+      { name: "React.js" },
+      { name: "Node.js" },
+      { name: "Express.js" },
+      { name: "MongoDb" },
+      { name: "Mongoose" },
+      { name: "TailwindCSS" },
+    ],
+    image: "/assets/work/thumb4.jpg",
+    github: "https://github.com/Nayan1509/Taskverse.git",
+    demo: "https://taskverse-phi.vercel.app/",
+  },
+  {
+    num: "02",
     category: "Front-End-Developement",
     title: "Car Rental Website",
     description:
@@ -37,7 +57,7 @@ const projects = [
       "https://github.com/Nayan1509/RevvedUp-Cars---A-Premium-Car-Rental-Website",
   },
   {
-    num: "02",
+    num: "03",
     category: "Front-End-Developement",
     title: "Hotel Website",
     description:
@@ -47,7 +67,7 @@ const projects = [
     github: "https://github.com/Nayan1509/Hotel-Website.git",
   },
   {
-    num: "03",
+    num: "04",
     category: "Front-End-Developement",
     title: "Bookshelf",
     description:
@@ -56,20 +76,6 @@ const projects = [
     image: "/assets/work/thumb3.png",
     github: "https://github.com/Nayan1509/Personal-Bookshelf.git",
   },
-  // {
-  //   num: "04",
-  //   category: "Front-End-Developement",
-  //   title: "Project Title 4",
-  //   description: "jsbchbuiscb",
-  //   stack: [
-  //     { name: "HTML5" },
-  //     { name: "CSS3" },
-  //     { name: "JavaScript" },
-  //     { name: "React.js" },
-  //   ],
-  //   image: "/assets/work/thumb3.png",
-  //   github: "",
-  // },
 ];
 
 const Work = () => {
@@ -115,38 +121,38 @@ const Work = () => {
               {/* project description  */}
               <p className="text-white/60">{project.description}</p>
               {/* stack  */}
-              <div className="flex items-center md:max-w-10px">
-                <ul className="flex gap-4">
-                {project.stack.map((item, index) => {
-                  return (
-                    <li key={index} className="text-xl text-accent">
-                      {item.name}
-                      {/* remove last comms  */}
-                      {index !== project.stack.length - 1 && ","}
-                    </li>
-                  );
-                })}
-              </ul></div>
+              <div className="flex flex-wrap gap-2">
+                {project.stack.map((item, index) => (
+                  <span
+                    key={index}
+                    className="text-sm px-3 py-1 rounded-full bg-white/10 text-accent"
+                  >
+                    {item.name}
+                  </span>
+                ))}
+              </div>
               {/* border  */}
               <div className="border border-white/20"></div>
               {/* buttons  */}
-              <div className=" flex items-ceter gap-4">
+              <div className=" flex items-center gap-4">
                 {/* live project  */}
-                {/* <Link href={project.github}>
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger
-                        className="w-[70px] h-[70px] rounded-full
-                  bg-white/5 flex justify-center items-center group"
-                      >
-                        <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Github</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link> */}
+                {project.demo && (
+                  <Link href={project.demo} target="_blank">
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger
+                          className="w-[70px] h-[70px] rounded-full
+          bg-white/5 flex justify-center items-center group"
+                        >
+                          <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Live Demo</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
                 {/* live project  */}
                 <Link href={project.github}>
                   <TooltipProvider>

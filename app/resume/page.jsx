@@ -1,12 +1,12 @@
 "use client";
 
 import { FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs } from "react-icons/fa";
-import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
+import { SiTailwindcss, SiNextdotjs, SiMongodb, SiAxios, SiExpress } from "react-icons/si";
 
 // about data
 const about = {
   title: "About Me",
-  description: "",
+  description: "All about me",
   info: [
     {
       fieldName: "Name",
@@ -39,7 +39,7 @@ const about = {
 const education = {
   icon: "/assets/resume/cap.svg",
   title: "My Education",
-  description: "",
+  description: "Here is an overview of my academic background",
   items: [
     {
       institute: "Global Institute of Technology, Jaipur",
@@ -58,18 +58,18 @@ const education = {
 const experience = {
   icon: "/assets/resume/badge.svg",
   title: "My Experience",
-  description: "",
+  description: "Here is an overview of my professional background",
   items: [
     {
       company: "Innobyte Services, Noida",
       position: "Web Developer",
-      duration: "Jun,24 - July,24",
-      description: "Devloped a website for a kolkata based Guest House",
+      duration: "July 2024 - Aug 2024",
+      description: "Developed a website for a kolkata based Guest House",
     },
     {
       company: "Thinker Tech, Jaipur",
       position: "Web Developer Intern",
-      duration: "July,23 - Jan,24",
+      duration: "June 2023 - June 2024",
       description: "Led the development and design of a Dating Website",
     },
   ],
@@ -78,7 +78,7 @@ const experience = {
 //Skills data
 const skills = {
   title: "My Skills",
-  description: "",
+  description: "Here is a list of skills I posses",
   skilllist: [
     {
       icon: <FaHtml5 />,
@@ -98,7 +98,7 @@ const skills = {
     },
     {
       icon: <SiTailwindcss />,
-      name: "Tailwind.Css",
+      name: "Tailwind CSS",
     },
     {
       icon: <SiNextdotjs />,
@@ -107,6 +107,18 @@ const skills = {
     {
       icon: <FaNodeJs />,
       name: "Node.js",
+    },
+    {
+      icon: <SiMongodb />,
+      name: "MongoDB",
+    },
+    {
+      icon: <SiAxios />,
+      name: "Axios",
+    },
+    {
+      icon: <SiExpress />,
+      name: "Express.js",
     },
   ],
 };
@@ -148,6 +160,7 @@ const Resume = () => {
           </TabsList>
           {/* content */}
           <div className="min-h-[70vh] w-full">
+
             {/* experience  */}
             <TabsContent value="experience" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
@@ -155,13 +168,13 @@ const Resume = () => {
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                   {experience.description}
                 </p>
-                <ScrollArea className="h-[400px]">
+                <ScrollArea className="max-h-[400px]">
                   <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                     {experience.items.map((item, index) => {
                       return (
                         <li
                           key={index}
-                          className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl
+                          className="bg-[#232329] max-h-[184px] py-6 px-10 rounded-xl
                         flex flex-col justify-center items-center lg:items-start gap-1"
                         >
                           <span className="text-accent">{item.duration}</span>
@@ -174,7 +187,7 @@ const Resume = () => {
                           <p className="text-white/60">{item.description}</p>
                           <div className="flex items-center gap-3">
                             <span
-                              className="w-[6px] h-[6px] rounded-full
+                              className="w-[6px] max-h-[6px] rounded-full
                             bg-accent"
                             ></span>
                             <p className="text-white/60">{item.company}</p>
@@ -194,13 +207,13 @@ const Resume = () => {
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                   {education.description}
                 </p>
-                <ScrollArea className="h-[400px]">
+                <ScrollArea className="max-h-[400px]">
                   <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                     {education.items.map((item, index) => {
                       return (
                         <li
                           key={index}
-                          className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl
+                          className="bg-[#232329] max-h-[184px] py-6 px-10 rounded-xl
                         flex flex-col justify-center items-center lg:items-start gap-1"
                         >
                           <span className="text-accent">{item.duration}</span>
@@ -212,7 +225,7 @@ const Resume = () => {
                           </h3>
                           <div className="flex items-center gap-3">
                             <span
-                              className="w-[6px] h-[6px] rounded-full
+                              className="w-[6px] max-h-[6px] rounded-full
                             bg-accent"
                             ></span>
                             <p className="text-white/60">{item.institute}</p>
@@ -235,32 +248,31 @@ const Resume = () => {
                   </p>
                 </div>
                 <ul className="grid grid-cols-2 h-[400px] sm:grid-cols-3 md:grid-cols-4 xl:gap-[30px] gap-4">
-                  {skills.skilllist.map((skills, index) => {
-                    return (
-                      <li key={index}>
-                        <TooltipProvider delayDuration={100}>
-                          <Tooltip>
-                            <TooltipTrigger
-                              className="w-full h-[150px]
-                               bg-[#232329] rounded-xl flex justify-center
-                              items-center group"
-                            >
-                              <div
-                                className="text-6xl group-hover:text-accent
-                                transition-all duration-300"
-                              >
-                                {skills.icon}
-                              </div>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                              <p className="capitalize">{skills.name}</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      </li>
-                    );
-                  })}
-                </ul>
+  {skills.skilllist.map((skills, index) => {
+    return (
+      <li key={index}>
+        <TooltipProvider delayDuration={100}>
+          <Tooltip>
+            <TooltipTrigger
+              className="w-full h-[150px] bg-[#232329] rounded-xl flex flex-col justify-center items-center group"
+            >
+              <div className="text-6xl group-hover:text-accent transition-all duration-300">
+                {skills.icon}
+              </div>
+              <div className="text-sm font-medium mt-2 text-white/80 group-hover:text-accent transition-all duration-300">
+                {skills.name}
+              </div>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p className="capitalize">{skills.name}</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      </li>
+    );
+  })}
+</ul>
+
               </div>
             </TabsContent>
 
