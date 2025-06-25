@@ -1,7 +1,24 @@
 "use client";
 
 import { FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs } from "react-icons/fa";
-import { SiTailwindcss, SiNextdotjs, SiMongodb, SiAxios, SiExpress } from "react-icons/si";
+import Image from "next/image";
+import { useState } from "react";
+import {
+  SiTailwindcss,
+  SiNextdotjs,
+  SiMongodb,
+  SiAxios,
+  SiExpress,
+} from "react-icons/si";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { motion } from "framer-motion";
 
 // about data
 const about = {
@@ -22,7 +39,7 @@ const about = {
     },
     {
       fieldName: "Experience",
-      fieldValue: "1 year",
+      fieldValue: "1+ year",
     },
     {
       fieldName: "Nationality",
@@ -123,17 +140,44 @@ const skills = {
   ],
 };
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { motion } from "framer-motion";
+// certificates data
+const certificates = {
+  title: "My Certificates",
+  description: "Courses and certifications I’ve completed",
+  list: [
+    {
+      name: "Web Development",
+      image: "/assets/certificates/web dev.png",
+    },
+    {
+      name: "Salesforce",
+      image: "/assets/certificates/salesforce.png",
+    },
+    {
+      name: "Data Science",
+      image: "/assets/certificates/forsk.png",
+    },
+    {
+      name: "TCS",
+      image: "/assets/certificates/tcs.jpg",
+    },
+    {
+      name: "Machine Learning",
+      image: "/assets/certificates/ml.jpg",
+    },
+    {
+      name: "Python",
+      image: "/assets/certificates/data sci.jpg",
+    },
+    {
+      name: "JAVA",
+      image: "/assets/certificates/java.jpg",
+    },
+  ],
+};
 
 const Resume = () => {
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -156,11 +200,11 @@ const Resume = () => {
             <TabsTrigger value="experience">Experience</TabsTrigger>
             <TabsTrigger value="education">Education</TabsTrigger>
             <TabsTrigger value="skills">Skills</TabsTrigger>
+            <TabsTrigger value="certificates">Certificates</TabsTrigger>
             <TabsTrigger value="about">About Me</TabsTrigger>
           </TabsList>
           {/* content */}
           <div className="min-h-[70vh] w-full">
-
             {/* experience  */}
             <TabsContent value="experience" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
@@ -248,31 +292,91 @@ const Resume = () => {
                   </p>
                 </div>
                 <ul className="grid grid-cols-2 h-[400px] sm:grid-cols-3 md:grid-cols-4 xl:gap-[30px] gap-4">
-  {skills.skilllist.map((skills, index) => {
-    return (
-      <li key={index}>
-        <TooltipProvider delayDuration={100}>
-          <Tooltip>
-            <TooltipTrigger
-              className="w-full h-[150px] bg-[#232329] rounded-xl flex flex-col justify-center items-center group"
-            >
-              <div className="text-6xl group-hover:text-accent transition-all duration-300">
-                {skills.icon}
+                  {skills.skilllist.map((skills, index) => {
+                    return (
+                      <li key={index}>
+                        <TooltipProvider delayDuration={100}>
+                          <Tooltip>
+                            <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex flex-col justify-center items-center group">
+                              <div className="text-6xl group-hover:text-accent transition-all duration-300">
+                                {skills.icon}
+                              </div>
+                              <div className="text-sm font-medium mt-2 text-white/80 group-hover:text-accent transition-all duration-300">
+                                {skills.name}
+                              </div>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p className="capitalize">{skills.name}</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
-              <div className="text-sm font-medium mt-2 text-white/80 group-hover:text-accent transition-all duration-300">
-                {skills.name}
-              </div>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p className="capitalize">{skills.name}</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      </li>
-    );
-  })}
-</ul>
+            </TabsContent>
 
+            {/* certificates  */}
+            <TabsContent value="certificates" className="w-full h-full">
+              <div className="flex flex-col gap-[30px]">
+                <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                  <h3 className="text-4xl font-bold">{certificates.title}</h3>
+                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                    {certificates.description}
+                  </p>
+                </div>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 xl:gap-[30px]">
+                  {certificates.list.map((cert, index) => (
+                    <li key={index}>
+                      <div
+                        onClick={() => setSelectedCertificate(cert)}
+                        className="bg-[#232329] rounded-xl overflow-hidden 
+              hover:scale-105 transition-transform duration-300 group cursor-pointer"
+                      >
+                        <Image
+                          src={cert.image}
+                          alt={cert.name}
+                          width={400}
+                          height={300}
+                          className="object-cover w-full h-[100px] rounded-xl"
+                        />
+                        <div className="p-4 text-center">
+                          <h4 className="text-white text-sm font-semibold">
+                            {cert.name}
+                          </h4>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Lightbox Modal */}
+                {selectedCertificate && (
+                  <div
+                    onClick={() => setSelectedCertificate(null)}
+                    className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 cursor-pointer"
+                  >
+                    <div className="relative max-w-4xl w-full mx-4">
+                      <Image
+                        src={selectedCertificate.image}
+                        alt={selectedCertificate.name}
+                        width={1200}
+                        height={800}
+                        className="rounded-xl object-contain w-full max-h-[90vh] border border-white/20"
+                      />
+                      <p className="text-white text-center mt-4">
+                        {selectedCertificate.name}
+                      </p>
+                      <button
+                        className="absolute top-4 right-4 text-white bg-red-900 rounded-md p-1 text-3xl"
+                        onClick={() => setSelectedCertificate(null)}
+                      >
+                        &times;
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             </TabsContent>
 
@@ -298,7 +402,9 @@ const Resume = () => {
                           xl:justify-start gap-6 bg-[#232329] rounded-xl"
                       >
                         <span className="text-white/60">{item.fieldName}</span>
-                        <span className="text-md font-bold">{item.fieldValue}</span>
+                        <span className="text-md font-bold">
+                          {item.fieldValue}
+                        </span>
                       </li>
                     );
                   })}
