@@ -14,6 +14,8 @@ const jetbrainsMono = JetBrains_Mono({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+        <title>Anunay Nayan - Portfolio</title>
+        <link rel="icon" href="/app/favicon.ico" />
       <body className={jetbrainsMono.variable}>
         <Header />
         <StairTransition />
