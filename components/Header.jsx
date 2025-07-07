@@ -3,6 +3,8 @@ import Link from "next/link";
 import Nav from "./Nav";
 import { Button } from "./ui/button";
 import MobileNav from "./MobileNav";
+import { motion } from "framer-motion";
+
 
 const Header = () => {
   return (
@@ -10,9 +12,13 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* logo */}
         <Link href="/">
-          <h1 className="text-4xl font-semibold">
-            Nayan<span className="text-accent">.</span>
-          </h1>
+          <motion.div
+            layoutId="logo-text"
+          >
+            <h1 className="text-4xl font-semibold">
+              Nayan<span className="text-accent">.</span>
+            </h1>
+          </motion.div>
         </Link>
 
         {/* desktop nav  */}
@@ -24,7 +30,9 @@ const Header = () => {
         </div>
 
         {/* mobile nav  */}
-        <div className="xl:hidden"><MobileNav/></div>
+        <div className="xl:hidden">
+          <MobileNav />
+        </div>
       </div>
     </header>
   );
