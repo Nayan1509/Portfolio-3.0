@@ -23,9 +23,9 @@ const projects = [
   {
     num: "01",
     category: "Full Stack Developement",
-    title: "TaskVerse - A full stack Task Management App",
+    title: "TaskVerse - A Task Management App",
     description:
-      "Taskverse is a full-stack productivity web app that allows users to organize, manage, and track tasks with a clean UI, real-time sync, drag-and-drop functionality, and secure authentication. Built using the MERN stack and deployed on Vercel (Frontend) and Render (Backend).",
+      "Taskverse is a full-stack web app that allows users to organize, manage, and track tasks with a clean UI and JWT based authentication. Built using the MERN stack and deployed on Vercel (Frontend) and Render (Backend).",
     stack: [
       { name: "HTML5" },
       { name: "JavaScript" },

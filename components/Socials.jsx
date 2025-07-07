@@ -1,24 +1,45 @@
-import Link from "next/link"
+"use client";
 
-import {FaGithub, FaLinkedin, } from 'react-icons/fa'
+import Link from "next/link";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 
-const Social = [
-    {icon: <FaGithub/>, path: 'https://github.com/Nayan1509'},
-    {icon: <FaLinkedin/>, path: 'https://linkedin.com/in/anunay-nayan-8aa9861b6'},
-    {icon: <SiGmail/>, path: 'mailto:anunayan123@gmail.com'},
-]
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider,
+} from "@/components/ui/tooltip";
 
-const Socials = ({containerStyles, iconStyles}) => {
+const Social = [
+  { icon: <FaGithub />, path: "https://github.com/Nayan1509", label: "GitHub" },
+  {
+    icon: <FaLinkedin />,
+    path: "https://linkedin.com/in/anunay-nayan-8aa9861b6",
+    label: "LinkedIn",
+  },
+  { icon: <SiGmail />, path: "mailto:anunayan123@gmail.com", label: "Gmail" },
+];
+
+const Socials = ({ containerStyles, iconStyles }) => {
   return (
-    <div className={containerStyles}>
-      {Social.map((item, index) => {
-        return <Link key={index} href={item.path} target="_blank" className={iconStyles}>
-            {item.icon}
-        </Link>
-      })}
-    </div>
-  )
-}
+    <TooltipProvider delayDuration={100}>
+      <div className={containerStyles}>
+        {Social.map((item, index) => (
+          <Tooltip key={index}>
+            <TooltipTrigger asChild>
+              <Link href={item.path} target="_blank" className={iconStyles}>
+                {item.icon}
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>{item.label}</p>
+            </TooltipContent>
+          </Tooltip>
+        ))}
+      </div>
+    </TooltipProvider>
+  );
+};
 
 export default Socials;
