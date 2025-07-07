@@ -14,9 +14,9 @@ const Home = () => {
           {/* text  */}
           <div className="text-center xl:text-left order-2 xl:order-none">
             {/* <span className="text-xl">Full Stack Developer</span> */}
-            <h1 className="text-6xl font-bold mb-6">
+            <h1 className="text-xl md:text-4xl xl:text-6xl font-bold mb-6">
               Hello I'm <br />
-              <span className="text-accent">
+              <span className="text-accent inline-block min-h-[60px]">
                 <Typewriter
                   words={["Anunay Nayan", "Full Stack Developer"]}
                   loop

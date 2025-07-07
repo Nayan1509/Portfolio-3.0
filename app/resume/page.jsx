@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
+import ResumeTopbar from "@/components/ResumeTopBar";
 
 // about data
 const about = {
@@ -178,6 +179,7 @@ const certificates = {
 
 const Resume = () => {
   const [selectedCertificate, setSelectedCertificate] = useState(null);
+  const [activeTab, setActiveTab] = useState("experience");
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -189,22 +191,15 @@ const Resume = () => {
           ease: "easeIn",
         },
       }}
-      className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
+      className="min-h-[80vh]  py-12 xl:py-0"
     >
       <div className="container mx-auto">
         <Tabs
-          defaultValue="experience"
-          className="flex flex-col xl:flex-row gap-[60px]"
-        >
-          <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
-            <TabsTrigger value="experience">Experience</TabsTrigger>
-            <TabsTrigger value="education">Education</TabsTrigger>
-            <TabsTrigger value="skills">Skills</TabsTrigger>
-            <TabsTrigger value="certificates">Certificates</TabsTrigger>
-            <TabsTrigger value="about">About Me</TabsTrigger>
-          </TabsList>
+          value={activeTab}
+          onValueChange={setActiveTab}>
+          <ResumeTopbar activeTab={activeTab} setActiveTab={setActiveTab} />
           {/* content */}
-          <div className="min-h-[70vh] w-full">
+          <div className="min-h-[70vh] w-full ">
             {/* experience  */}
             <TabsContent value="experience" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
@@ -212,13 +207,13 @@ const Resume = () => {
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                   {experience.description}
                 </p>
-                <ScrollArea className="max-h-[400px]">
+                <ScrollArea>
                   <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                     {experience.items.map((item, index) => {
                       return (
                         <li
                           key={index}
-                          className="bg-[#232329] max-h-[184px] py-6 px-10 rounded-xl
+                          className="bg-[#232329]  py-6 px-10 rounded-xl
                         flex flex-col justify-center items-center lg:items-start gap-1"
                         >
                           <span className="text-accent">{item.duration}</span>
@@ -251,13 +246,13 @@ const Resume = () => {
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                   {education.description}
                 </p>
-                <ScrollArea className="max-h-[400px]">
+                <ScrollArea>
                   <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                     {education.items.map((item, index) => {
                       return (
                         <li
                           key={index}
-                          className="bg-[#232329] max-h-[184px] py-6 px-10 rounded-xl
+                          className="bg-[#232329] py-6 px-10 rounded-xl
                         flex flex-col justify-center items-center lg:items-start gap-1"
                         >
                           <span className="text-accent">{item.duration}</span>
@@ -387,11 +382,11 @@ const Resume = () => {
             >
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
                 <h3 className="text-4xl font-bold">{about.title}</h3>
-                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                {/* <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                   {about.description}
-                </p>
+                </p> */}
                 <ul
-                  className="grid grid-cols-1 h-[400px] xl:grid-cols-2 gap-6 max-w-[620px]
+                  className="grid grid-cols-1 h-[400px] xl:grid-cols-2 gap-6 
                       mx-auto xl:mx-0"
                 >
                   {about.info.map((item, index) => {
